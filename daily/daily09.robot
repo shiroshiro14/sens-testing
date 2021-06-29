@@ -8,6 +8,8 @@ ${HOMEPAGE}     https://api.edugix.com/login.html
 ${BROWSER}      Chrome
 ${DELAY}        5s
 ${RDelay}       1s
+${EN}           en
+${VI}           vi
 *** Keywords ***
 
 open the browser
@@ -40,12 +42,16 @@ Login test
     login
     sleep       ${DELAY}
     change lang EN
-    sleep       ${RDelay}
+    Execute Javascript      $rootScope = angular.element(document).scope()
+    ${current}=     Execute Javascript      return $rootScope.currentLanguage
+    ${lang}=        Convert To String       ${current}
+    Should Be Equal As Strings      ${lang}     ${EN}
+    Set Selenium Timeout    3s
     change lang VN
-    sleep       ${RDelay}
-    change lang EN
-    sleep       ${RDelay}
-    change lang VN
-    sleep       ${RDelay}
+    Execute Javascript      $rootScope = angular.element(document).scope() 
+    ${current}=     Execute Javascript      return $rootScope.currentLanguage
+    ${lang}=        Convert To String       ${current}
+    Should Be Equal As Strings      ${lang}     ${VI} 
+    Set Selenium Timeout        3s
     teardown
 

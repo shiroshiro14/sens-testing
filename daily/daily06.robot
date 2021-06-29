@@ -33,7 +33,9 @@ click report
     Click Element       xpath://*[@id="menu"]/li[2]/a
 click daily report
     Click Element       xpath://*[@id="menu"]/li[2]/ul/li[1]/a/span
-check student list 
+check student list
+    Element Should Be Enabled       xpath:/html/body/ng-include/div[2]/ui-view/div/div/div/div/div/div/div[2]/ui-view/div[1]/div[1]
+    Element Should Be Visible       xpath:/html/body/ng-include/div[2]/ui-view/div/div/div/div/div/div/div[2]/ui-view/div[1]/div[1]
     Click Element       xpath:/html/body/ng-include/div[2]/ui-view/div/div/div/div/div/div/div[2]/ui-view/div[1]/div[1]
     ${SIZE}=            Get List Items      xpath:/html/body/ng-include/div[2]/ui-view/div/div/div/div/div/div/div[2]/ui-view/div[1]/div[1]/div/select       true
     Log                 list items ${SIZE}
@@ -44,6 +46,8 @@ check student list
         sleep       ${RDelay}
     END
 check class list 
+    Element Should Be Enabled       xpath:/html/body/ng-include/div[2]/ui-view/div/div/div/div/div/div/div[2]/ui-view/div[1]/div[2]/select
+    Element Should Be Visible       xpath:/html/body/ng-include/div[2]/ui-view/div/div/div/div/div/div/div[2]/ui-view/div[1]/div[2]/select
     Click Element       xpath:/html/body/ng-include/div[2]/ui-view/div/div/div/div/div/div/div[2]/ui-view/div[1]/div[2]/select
     ${SIZE}=            Get List Items      xpath:/html/body/ng-include/div[2]/ui-view/div/div/div/div/div/div/div[2]/ui-view/div[1]/div[2]/select        true
     Log                 list items ${SIZE}
@@ -53,6 +57,8 @@ check class list
         check period list 
     END
 check period list 
+    Element Should Be Enabled       xpath:/html/body/ng-include/div[2]/ui-view/div/div/div/div/div/div/div[2]/ui-view/div[1]/div[3]/select
+    Element Should Be Visible       xpath:/html/body/ng-include/div[2]/ui-view/div/div/div/div/div/div/div[2]/ui-view/div[1]/div[3]/select
     Click Element       xpath:/html/body/ng-include/div[2]/ui-view/div/div/div/div/div/div/div[2]/ui-view/div[1]/div[3]/select
     sleep       ${RDelay}
     ${SIZE}=        Get List Items       xpath:/html/body/ng-include/div[2]/ui-view/div/div/div/div/div/div/div[2]/ui-view/div[1]/div[3]/select     true
