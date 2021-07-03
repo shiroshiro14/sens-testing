@@ -1,6 +1,6 @@
 ***Settings***
 
-Resource    resource.robot 
+Resource    ../resource.robot 
 
 ***Test Cases***
 class filter
