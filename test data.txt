@@ -1,0 +1,38 @@
+login: 
+    1. login parent
+    2. test_report01_parents@gmail.com
+    3. pass: apollo123456
+
+test 06: 
+    switchable between period
+    Filter report by:
+        1: Student name
+        2: Class name
+        3: Date - offline / Online - index
+test 07:
+    expected 
+        period 1: show star. result of speed meter A and B
+test 08: 
+
+test 09: 
+
+test 10:a
+
+
+
+
+teacher test: 
+
+login as teacher 
+    different keyword 
+
+    different variables 
+        Resource files 
+        Variables files 
+
+grade book 01 - 05 
+
+
+add function 01 - 05 
+
+report individual 01 - 05
