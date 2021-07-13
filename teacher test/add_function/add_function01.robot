@@ -26,6 +26,7 @@ online session
     Location Should Be      https://api.edugix.com/teacher/onlineClass.html#/index/37424/5378/-1
 dice testing 
     Click Element       xpath://*[@id="slide-339"]/div[1]/img
+    Element Should Be Enabled       xpath:/html/body/ui-view/div[2]/div[3]/div[2]/div/div[8]       
     Click Element       xpath:/html/body/ui-view/div[2]/div[3]/div[2]/div/div[8]
     sleep       ${RDelay}
     Page Should Contain Element     id=animate-number-cube-element

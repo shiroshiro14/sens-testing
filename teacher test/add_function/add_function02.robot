@@ -24,17 +24,22 @@ online session
     Click Element       xpath://*[@id="content-wrapper"]/div/div/ui-view/div[2]/div/div[3]/div/div/ul/li[4]/a
     Switch Window       title=Online Class
     Location Should Be      https://api.edugix.com/teacher/onlineClass.html#/index/37424/5378/-1
-dice testing 
+drag and drop testing
     Click Element       xpath://*[@id="slide-339"]/div[1]/img
-    Click Element       xpath:/html/body/ui-view/div[2]/div[3]/div[2]/div/div[8]
-    sleep       ${RDelay}
-    Page Should Contain Element     id=animate-number-cube-element
-    sleep       3s
-    Click Element       id=animate-number-cube-element
-    sleep       ${RDelay}
-    Page Should Not Contain Element         id=animate-number-cube-element
+    Element Should Be Enabled           xpath:/html/body/ui-view/div[2]/div[2]/div[1]/div[2]/div/div/div[1]                  
+    Drag And Drop       xpath:/html/body/ui-view/div[2]/div[2]/div[1]/div[2]/div/div/div[1]         xpath:/html/body/ui-view/div[2]/div[2]/div[2]/div/div/*[name()="svg"]/*[name()="rect"][4]
+    Page Should Contain Element         xpath:/html/body/ui-view/div[2]/div[2]/div[2]/div/div/*[name()="svg"]/*[name()="image"]
+    ${x}=       Get Horizontal Position     xpath:/html/body/ui-view/div[2]/div[2]/div[2]/div/div/*[name()="svg"]/*[name()="image"]
+    ${y}=       Get Vertical Position       xpath:/html/body/ui-view/div[2]/div[2]/div[2]/div/div/*[name()="svg"]/*[name()="image"]     
+    Drag And Drop By Offset             xpath:/html/body/ui-view/div[2]/div[2]/div[2]/div/div/*[name()="svg"]/*[name()="image"]     20      20
+    ${new_x}=       Get Horizontal Position     xpath:/html/body/ui-view/div[2]/div[2]/div[2]/div/div/*[name()="svg"]/*[name()="image"]
+    ${new_Y}=       Get Vertical Position       xpath:/html/body/ui-view/div[2]/div[2]/div[2]/div/div/*[name()="svg"]/*[name()="image"]
+    ${x_offset}=        Set Variable        ${${new_x} - ${x}}
+    ${y_offset}=        Set Variable        ${${new_y} - ${y}}
+    Run Keyword And Continue On Failure       Should Be True      '${x_offset}'=='20' and '${y_offset}'=='20' 
+
 ***Test Cases***
-add function 01
+add function 02
     resource.open the browser teacher  
     user login
     sleep       ${RDelay}
@@ -47,6 +52,7 @@ add function 01
     #check student attendance for testing
     online session
     sleep       ${RDelay}
-    dice testing 
+    drag and drop testing 
+    sleep       ${Delay}
     resource.teardown
 
